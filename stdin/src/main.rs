@@ -9,5 +9,10 @@ fn main() {
         .read_line(&mut user_input)
         .expect("Не удалось прочитать ввод");
 
-    println!("Вы ввели {user_input}");
+    let in_num: i32 = user_input
+        .trim() // метод trim удаляет из строки все пробельные символы, включая \n
+        .parse() // метод parse преобразует строку в другой тип
+        .expect("Пожалуйста введите число");
+
+    println!("{in_num} + 1 = {}", in_num + 1);
 }
