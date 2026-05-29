@@ -1,18 +1,16 @@
-use std::io;
-
 fn main() {
-    println!("Пожалуйста введите строку");
-
-    let mut user_input = String::new();
-
-    io::stdin()
-        .read_line(&mut user_input)
-        .expect("Не удалось прочитать ввод");
-
-    let in_num: i32 = user_input
-        .trim() // метод trim удаляет из строки все пробельные символы, включая \n
-        .parse() // метод parse преобразует строку в другой тип
-        .expect("Пожалуйста введите число");
-
-    println!("{in_num} + 1 = {}", in_num + 1);
+    let mut x = String::new();
+    let mut y = String::new();
+    
+    std::io::stdin()
+        .read_line(&mut x)
+        .expect("Err");
+    std::io::stdin()
+        .read_line(&mut y)
+        .expect("Err");
+    
+    println!("{}", x.trim().parse::<i16>().unwrap() + y.trim().parse::<i16>().unwrap() -
+        x.trim().parse::<i16>().unwrap());
+    println!("{}", y.trim().parse::<i16>().unwrap() + x.trim().parse::<i16>().unwrap() -
+        y.trim().parse::<i16>().unwrap());
 }
