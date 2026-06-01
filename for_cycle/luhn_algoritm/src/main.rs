@@ -28,29 +28,34 @@ fn main() {
     let mut card_digits = [0u8; LEN_CARD_NUM as usize];
     let mut tmp = card_num;
 
-    print!("Карта с номером");
+    let mut sum: u8 = 0;
 
-    for i in 0..LEN_CARD_NUM {
+    for i in (0..card_digits.len()).rev() {
         let digit = (tmp % 10) as u8;
-        card_digits[(LEN_CARD_NUM - 1 - i) as usize] = digit;
+        card_digits[i] = digit;
+        sum += digit;
+        if i % 2 == 0 {
+            sum += digit;
+            if card_digits[i] > 4 {
+                sum += 1;
+            };
+        }
         tmp /= 10;
+    }
+    let card_is_valid = sum % 10 == 0;
+    
+    if card_is_valid {
+        print!("Карта с номером");
+    } else {
+        print!("Карты с номером");
+    }
+    for i in 0..LEN_CARD_NUM {
         if i % 4 == 0 {
             print!(" ");
         } 
         print!("{}", card_digits[i as usize]);
     }
-
-    let mut sum: u8 = 0;
-    for i in (0..card_digits.len()).rev() {
-        sum += card_digits[i];
-        if i % 2 == 0 {
-            sum += card_digits[i];
-            if card_digits[i] > 4 {
-                sum += 1;
-            };
-        }
-    }
-    if sum % 10 == 0 {
+    if card_is_valid {
         print!(" действительна");
     } else {
         print!(" не существует")
