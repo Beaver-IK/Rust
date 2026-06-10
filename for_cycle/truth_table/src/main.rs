@@ -18,7 +18,7 @@
 fn read() -> String {
     let mut input = String::new();
     std::io::stdin().read_line(&mut input).expect("Error");
-    return input.trim().to_string()
+    input.trim().to_string()
 }
 
 fn main() {
