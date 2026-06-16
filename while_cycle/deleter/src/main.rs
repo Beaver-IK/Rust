@@ -17,14 +17,15 @@ fn read() -> String {
 fn main() {
     let n_str: String = read();
     let k: u32 = read().parse().expect("Error 2");
+    let len_n: usize = n_str.len();
 
-    match n_str.len() <= k as usize {
+    match len_n <= k as usize {
         true => {
             println!("k >= n");
         }
         false => {
             let n: u32 = n_str.parse().expect("Error 3");
-            println!("{}", n % 10_u32.pow(k));
+            println!("{}", n % 10_u32.pow(len_n as u32 - k));
         }
     }
 }
