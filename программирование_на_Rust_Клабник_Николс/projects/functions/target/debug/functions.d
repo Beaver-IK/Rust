@@ -1,0 +1,1 @@
+/run/media/vannchek/Data/Dev/Rust/программирование_на_Rust_Клабник_Николс/projects/functions/target/debug/functions: /run/media/vannchek/Data/Dev/Rust/программирование_на_Rust_Клабник_Николс/projects/functions/src/main.rs
